@@ -24,6 +24,8 @@ class Player(pygame.sprite.Sprite):
         self.rect.centerx = self.winWidth / 2
         self.rect.bottom = self.winHeight - 10
         self.speedX = 0
+
+        #We add a new attribute to the Player called bullets, which will store the list of all the bullets in the game
         self.bullet_image = p_bullet_img
         self.bullets = pygame.sprite.Group()
 
@@ -39,9 +41,12 @@ class Player(pygame.sprite.Sprite):
             self.rect.right = self.winWidth
         if self.rect.left < 0:
             self.rect.left = 0
+        
+        #A call that creates the movement of the bullets on the screen
         self.bullets.draw(self.win)
         self.bullets.update()
 
+    #A new function called "shoot", that creating an instance of abullet object
     def shoot(self):
         bullet = Bullet(self.win, self.rect.centerx, self.rect.top, self.bullet_image)
         self.bullets.add(bullet)

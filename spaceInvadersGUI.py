@@ -61,6 +61,7 @@ def create_meteor():
     meteors.add(meteor)
 
 
+#a for loop that will be executed 9 times, so in each iteration, it will create a new meteor object, and add it to the sprites group 
 for i in range(9):
     img_name = 'regularExplosion0{}.png'.format(i)
     img = pygame.image.load(path.join(explosions_img_dir, img_name)).convert()
